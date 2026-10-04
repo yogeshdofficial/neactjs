@@ -1,0 +1,26 @@
+[package]
+name = "native-react-host"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "native_react_host"
+
+[[bin]]
+name = "native-react-host"
+path = "src/main.rs"
+
+[dependencies]
+blitz-dom.workspace = true
+blitz-html.workspace = true
+blitz-shell.workspace = true
+blitz-traits.workspace = true
+anyrender_vello.workspace = true
+winit.workspace = true
+rquickjs = { version = "0.9", default-features = false, features = [] }
+serde_json.workspace = true
+
+[target.'cfg(target_os = "android")'.dependencies]
+android-activity = { version = "0.6.0", features = ["native-activity"] }
+rquickjs = { version = "0.9", default-features = false, features = [] }
